@@ -1,0 +1,15 @@
+This prompt question involved counting numbers that were divisible by three within a set range.	
+  
+  public static int countNumbers(int n, int max) {
+		int goodNums = 0;
+		for(int i = 0; i < max; i++) {
+			int newNum = getNumber();
+			if(!isTarget(newNum) && newNum % 3 == 0) {
+				goodNums++;
+				if(goodNums == n) {
+					return i;
+				}
+			}
+		}
+		return -1;
+	}
