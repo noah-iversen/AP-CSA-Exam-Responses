@@ -1,0 +1,35 @@
+	A)
+  This question involved the manipulation of a song playlist. The prompt asked to write two methods that would retrieve a song and remove a song according to certain specifications.
+  
+	public Song getNextSong() {
+		Song nextSong;
+		for(Song song : songList) {
+			if(nextSong != null) {
+				if(song.getLength() > nextSong.getLength()) {
+					if(!song.getRecentlyPlayed()) {
+						nextSong = song;
+					}
+				}
+			} else {
+				nextSong = song;
+			}
+		}
+		nextSong.setPlayedToday();
+		return nextSong;
+	}
+
+
+	B)
+	
+	public void removeLong() {
+		Song nextSong = getNextSong();
+		for(Song song : songList) {
+			if(nextSong != song) {
+				int songDiff = nextSong.getLength() - song.getLength();
+				if(songDiff < 30 || songDiff > -30) {
+					songList.remove(song);
+				}
+			}
+		}
+	}
+
